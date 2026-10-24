@@ -1,81 +1,77 @@
 <div align="center">
 
-# λ Lambda Calculus Interpreter
+# λ Intérprete de Cálculo Lambda
 
-**An extended, typed lambda calculus interpreter written in OCaml**
+**Un intérprete de cálculo lambda tipado e ampliado, escrito en OCaml**
 
 ![OCaml](https://img.shields.io/badge/OCaml-EC6813?style=for-the-badge&logo=ocaml&logoColor=white)
-![Course](https://img.shields.io/badge/DLP-2026%2F27-blue?style=for-the-badge)
-![Status](https://img.shields.io/badge/status-in%20progress-yellow?style=for-the-badge)
+![Curso](https://img.shields.io/badge/DLP-2026%2F27-blue?style=for-the-badge)
+![Estado](https://img.shields.io/badge/estado-en%20curso-yellow?style=for-the-badge)
 
-*Programming Languages Design (DLP) · Computer Engineering (Q7) · Academic year 2026/27*
+*Deseño de Linguaxes de Programación (DLP) · Grao en Enxeñaría Informática (Q7)*
 
 </div>
 
 ---
 
-## About
+## Sobre o proxecto
 
-This project extends the **lambda-3** interpreter (a typed lambda calculus inspired by the implementations cited in Benjamin C. Pierce's *Types and Programming Languages*) with new language features and a better user experience.
+Este proxecto amplía o intérprete **lambda-3** (un cálculo lambda tipado inspirado nas implementacións que Benjamin C. Pierce cita en *Types and Programming Languages*) con novas funcionalidades da linguaxe e melloras na experiencia de uso.
 
-The interpreter reads expressions from an interactive prompt, type-checks them, evaluates them and prints the result together with its type.
-
----
-
-## Features and progress
-
-| #   | Feature                                             | Delivery     | Status |
-|-----|-----------------------------------------------------|--------------|:------:|
-| 1.1 | Multi-line expressions (terminated by `;;`)         | Intermediate | ⬜ |
-| 1.2 | Full pretty-printer (minimal parentheses, indentation) | Final     | ⬜ |
-| 2.1 | Internal fixed-point combinator (`letrec`)          | Intermediate | ⬜ |
-| 2.2 | Global context for term and type definitions        | Intermediate | ⬜ |
-| 2.3 | `String` type and concatenation                     | Intermediate | ⬜ |
-| 2.4 | Tuples and positional projection                    | Intermediate | ⬜ |
-| 2.5 | Records and label projection                        | Final        | ⬜ |
-| 2.6 | Variants and `case` expressions                     | Final        | ⬜ |
-| 2.7 | Lists (`head`, `tail`, `isempty`)                   | Final        | ⬜ |
-| 2.8 | Subtyping for records and functions                 | Final        | ⬜ |
-| 3.1 | Final report (user manual + technical manual, PDF)  | Final        | ⬜ |
-
-> Legend: ⬜ pending · 🟨 in progress · ✅ done
-
-### Deadlines
-
-- 📅 **Intermediate delivery:** Friday, 13 November 2026 (items 1.1, 2.1, 2.2, 2.3, 2.4)
-- 📅 **Final delivery:** Friday, 11 December 2026 (remaining items)
-- 🎤 **Possible defense:** 15 December 2026
+O intérprete le expresións desde un prompt interactivo, comproba os seus tipos, avalíaas e amosa o resultado xunto co seu tipo.
 
 ---
 
-## Getting started
+## Funcionalidades a alcanzar
 
-### Requirements
+### Melloras na introdución e escritura de expresións
 
-- [OCaml](https://ocaml.org/) (4.14 or later recommended)
-- `make` or `dune` (depending on the build system used in the project)
+- [ ] **1.1 Expresións multiliña:** poder escribir unha expresión en varias liñas, rematándoa con `;;`.
+- [ ] **1.2 Pretty-printer completo:** minimizar os parénteses ao escribir unha expresión e indentar os seus elementos (mediante o módulo `Format` de OCaml).
 
-### Build
+### Ampliacións da linguaxe
+
+- [ ] **2.1 Combinador de punto fixo interno (`letrec`):** declarar funcións recursivas directamente. Inclúe os exemplos `prod`, `fib` e `fact`.
+- [ ] **2.2 Contexto de definicións globais:** asociar nomes con termos (`x = true`) e alias de tipos (`N = Nat`) para usalos en expresións posteriores. O contexto é *funcional*.
+- [ ] **2.3 Tipo `String`:** cadeas de caracteres e operación de concatenación.
+- [ ] **2.4 Tuplas:** produtos cartesianos de calquera número de elementos e tipos, con proxección por posición.
+- [ ] **2.5 Rexistros:** campos etiquetados de calquera tipo, con proxección por etiqueta.
+- [ ] **2.6 Variantes:** valores etiquetados con `case`. Inclúe o tipo `Int` e a función recursiva `add : Int -> Int -> Int`.
+- [ ] **2.7 Listas:** cabeza, cola e consulta de lista baleira. Inclúe `length`, `append` e `map`, sen usar as listas de OCaml.
+- [ ] **2.8 Subtipado:** para rexistros e funcións, integrado na función de tipado.
+
+> Lenda: `[ ]` pendente · `[x]` feito
+
+---
+
+## Posta en marcha
+
+### Requisitos
+
+- [OCaml](https://ocaml.org/) (recoméndase a versión 4.14 ou posterior)
+- `make` ou `dune`, segundo o sistema de compilación do proxecto
+
+### Compilar
 
 ```bash
 git clone git@github.com:paablomiguez/INTERPRETE_LAMBDA_CALCULO_DLP_GEI_202627.git
 cd INTERPRETE_LAMBDA_CALCULO_DLP_GEI_202627
-make            # or: dune build
+make            # ou: dune build
 ```
 
-### Run
+### Executar
 
 ```bash
-./top           # or: dune exec ./top.exe
+./top           # ou: dune exec ./top.exe
 ```
 
-> ⚠️ Adjust the build and run commands above to match the actual build system of the project.
+> ⚠️ Axusta os comandos de compilación e execución ao sistema real do proxecto.
 
 ---
 
-## Usage examples
+## Exemplos de uso
 
-### Recursive functions with `letrec` (2.1)
+### Funcións recursivas con `letrec` (2.1)
 
 ```
 >> letrec sum : Nat -> Nat -> Nat =
@@ -85,7 +81,7 @@ make            # or: dune build
 - : Nat = 55
 ```
 
-### Global definitions (2.2)
+### Definicións globais (2.2)
 
 ```
 >> x = true;;
@@ -97,7 +93,7 @@ make            # or: dune build
 >> lambda x : N. x;;
 ```
 
-### Variants (2.6)
+### Variantes (2.6)
 
 ```
 >> Int = <pos:Nat, zero:Bool, neg:Nat>;;
@@ -111,54 +107,12 @@ make            # or: dune build
 - : <pos : Nat, zero : Bool, neg : Nat> = <pos = 3>
 ```
 
-More examples (`prod`, `fib`, `fact`, `add` on integers, `length`, `append`, `map`, subtyping) are collected in [`examples.txt`](examples.txt).
-
----
-
-## Project structure
-
-```
-.
-├── README.md        # This file
-├── examples.txt     # Example expressions for every feature
-├── lexer.mll        # Lexical analyzer
-├── parser.mly       # Syntactic analyzer
-├── syntax.ml        # Abstract syntax tree, pretty-printer
-├── core.ml          # Typing and evaluation
-├── main.ml          # Interactive loop
-├── Makefile
-└── report/          # Final report (PDF)
-```
-
-> ⚠️ Update this tree to match the real file layout of the project.
-
----
-
-## Design notes
-
-- **Global context:** implemented as a *functional* context (redefining a name shadows the previous binding without mutating the old one). The chosen implementation and the reasons for it are explained in the final report.
-- **Language policy:** all source code, comments, examples and documentation are written in **English**.
-- **Lists:** implemented from scratch, without relying on OCaml's built-in lists for the object language.
-
----
-
-## Documentation
-
-The final report (PDF) includes:
-
-1. **User manual:** formal description and execution examples of every new feature.
-2. **Technical manual:** modules modified from the original implementations and the kind of changes made to each.
-
----
-
-## Author
-
-**Pablo Míguez** · [@paablomiguez](https://github.com/paablomiguez)
+Máis exemplos (`prod`, `fib`, `fact`, `add` sobre enteiros, `length`, `append`, `map` e subtipado) recóllense en [`examples.txt`](examples.txt).
 
 ---
 
 <div align="center">
 
-*Made with λ and a lot of parentheses.*
+*Feito con λ e moitos parénteses.*
 
 </div>
