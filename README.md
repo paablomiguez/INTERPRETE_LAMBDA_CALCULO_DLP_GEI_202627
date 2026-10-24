@@ -4,7 +4,7 @@
 
 **Un intérprete de cálculo lambda tipado e ampliado, escrito en OCaml**
 
-![OCaml](https://img.shields.io/badge/OCaml-EC6813?style=for-the-badge&logo=ocaml&logoColor=white)
+![OCaml](https://ocaml.org/)
 ![Curso](https://img.shields.io/badge/DLP-2026%2F27-blue?style=for-the-badge)
 ![Estado](https://img.shields.io/badge/estado-en%20curso-yellow?style=for-the-badge)
 
